@@ -13,6 +13,8 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
 from django.conf import settings
+from rest_framework_simplejwt.tokens import RefreshToken, TokenError
+from rest_framework_simplejwt.views import TokenRefreshView
 
 User = get_user_model()
 
@@ -187,7 +189,41 @@ class PasswordResetConfirmView(APIView):
 
 
 
-from rest_framework_simplejwt.tokens import RefreshToken, TokenError
+class RefreshTokenView(TokenRefreshView):
+    """
+    Custom refresh token view to handle token refresh properly
+    """
+    permission_classes = [AllowAny]
+    
+    def post(self, request, *args, **kwargs):
+        try:
+            refresh_token = request.data.get('refresh')
+            if not refresh_token:
+                return Response({
+                    'error': 'Refresh token is required',
+                    'success': False
+                }, status=status.HTTP_400_BAD_REQUEST)
+            
+            # Validate and refresh the token
+            refresh = RefreshToken(refresh_token)
+            new_access_token = str(refresh.access_token)
+            
+            return Response({
+                'access': new_access_token,
+                'success': True,
+                'message': 'Token refreshed successfully'
+            }, status=status.HTTP_200_OK)
+            
+        except TokenError as e:
+            return Response({
+                'error': f'Invalid refresh token: {str(e)}',
+                'success': False
+            }, status=status.HTTP_401_UNAUTHORIZED)
+        except Exception as e:
+            return Response({
+                'error': f'Error refreshing token: {str(e)}',
+                'success': False
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
@@ -227,4 +263,3 @@ class TestView(APIView):
         return Response({"message": "This is a test view. It is working fine!"}, status=status.HTTP_200_OK)
     def post(self, request):
         return Response({"message": "This is a test view. It is working fine!"}, status=status.HTTP_200_OK)
-    

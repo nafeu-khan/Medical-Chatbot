@@ -24,7 +24,7 @@ A comprehensive medical chatbot application built with React.js frontend and Dja
 - **Vector Search**: Efficient retrieval of relevant medical information
 - **Scalable Architecture**: Easy to extend with additional medical knowledge sources
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Frontend
 - **React.js**: Modern React with hooks and functional components
@@ -44,44 +44,7 @@ A comprehensive medical chatbot application built with React.js frontend and Dja
 - **Google Generative AI**: Advanced language model
 - **Pinecone**: Vector database for semantic search
 
-## 📁 Basic Project Structure
-
-```
-Medical Chatbot/
-├── client/                 # Frontend React application
-│   ├── src/
-│   │   ├── Components/     # Reusable UI components
-│   │   │   ├── ChatHeader.jsx
-│   │   │   ├── ChatInput.jsx
-│   │   │   ├── ChatMessage.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   └── Footer.jsx
-│   │   ├── Pages/          # Page components
-│   │   │   ├── ChatbotPage.jsx
-│   │   │   ├── Home.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   └── SignupPage.jsx
-│   │   ├── services/       # API services
-│   │   │   ├── apiServices.js
-│   │   │   └── chatbotService.js
-│   │   ├── utility/        # Utility functions
-│   │   └── hooks/          # Custom React hooks
-│   ├── public/             # Static assets
-│   └── package.json
-├── server/                 # Backend Django application
-│   ├── chatbot_app/        # Chatbot functionality
-│   │   ├── models.py       # Database models
-│   │   ├── views.py        # API views
-│   │   ├── serializers.py  # Data serialization
-│   │   ├── utils.py        # AI chatbot logic
-│   │   └── urls.py         # URL routing
-│   ├── auth_app/           # Authentication app
-│   ├── server/             # Django settings
-│   └── requirements.txt
-└── README.md
-```
-
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 16+ and npm
@@ -142,7 +105,7 @@ Medical Chatbot/
    npm run dev
    ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -167,7 +130,7 @@ VITE_LOGIN_URL=/api/auth/login/
 VITE_REFRESH_TOKEN_URL=/api/auth/token/refresh/
 ```
 
-## 📱 Usage
+## Usage
 
 1. **Register/Login**: Create an account or sign in to access the chatbot
 2. **Navigate to Chatbot**: Click on "Chatbot" in the navigation menu
@@ -175,7 +138,7 @@ VITE_REFRESH_TOKEN_URL=/api/auth/token/refresh/
 4. **Get Responses**: Receive AI-powered medical information and advice
 5. **View History**: Access your previous conversations
 
-## 🤖 AI Features
+##  AI Features
 
 ### Medical Knowledge Areas
 - **Symptoms**: Information about common symptoms and their causes
@@ -190,51 +153,18 @@ VITE_REFRESH_TOKEN_URL=/api/auth/token/refresh/
 - **Safety Disclaimers**: Appropriate medical disclaimers included
 - **Professional Guidance**: Recommendations to consult healthcare providers
 
-## 🔒 Security Features
+## Security Features
 
 - **JWT Authentication**: Secure token-based authentication
 - **Protected Routes**: Authentication required for chatbot access
 - **CORS Configuration**: Proper cross-origin resource sharing
 - **Input Validation**: Server-side validation of all inputs
-- **Error Handling**: Graceful error handling and user feedback
+- **Error Handling**: error handling and user feedback
 
-## 🧪 Testing
 
-### Backend Testing
-```bash
-cd server
-python manage.py test chatbot_app
-```
 
 ### Frontend Testing
 ```bash
 cd client
 npm test
 ```
-
-
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-
-## 🆘 Support
-
-For support and questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the documentation
-
----
-
-**Medical Chatbot** - Your AI-powered medical information assistant
